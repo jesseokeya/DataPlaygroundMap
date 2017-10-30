@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Data Playground Map</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+  <link rel="stylesheet" href="./resources/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-info shadow">
+    <a class="navbar-brand" href="/">
+      Data Playground Map
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <span class="navbar-text">Version 0.0.1</span>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div id="map" class="map"></div>
+    <div id="textArea" class="form-group shadow">
+      <textarea class="form-control" id="inputData" rows="3"></textarea>
+    </div>
+
+    <div id="button" class="container">
+      <button type="button" class="btn btn-dark btn-lg btn-block shadow" onclick="visualizeDataAsMap()">
+        Visualize Json Data As Map
+      </button>
+    </div>
+
+
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqbFdkItu8PhdWno76UMmQoIQZUb1NwGs&callback=initMap">
+  </script>
+  <!-- Optional JavaScript -->
+  <script type="text/javascript" src="./resources/js/map.js"></script>
+  <script type="text/javascript">
+    function initMap(){}
+  </script>
+</body>
+
+</html>

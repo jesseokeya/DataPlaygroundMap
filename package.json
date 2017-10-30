@@ -1,0 +1,23 @@
+{
+  "name": "data-playground-map",
+  "version": "1.0.0",
+  "description": "Map Visualization Library",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GoogleMapsApi",
+    "Npm",
+    "NodeJs",
+    "Javascript",
+    "Bootstrap",
+    "jquery"
+  ],
+  "private": true,
+  "author": "Jesse Okeya",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
