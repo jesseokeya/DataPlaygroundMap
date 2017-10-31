@@ -8,8 +8,17 @@ console.log(socket);
 function main() {
   $('#map').hide();
   socket.on('time', function(timeString) {
-    console.log(timeString);
+    //console.log(timeString);
   });
+
+  setInterval(() => {
+    let inputValue = $('#inputData').val();
+    if (inputValue) {
+      inputValue = JSON.parse(inputValue);
+      inputValue = JSON.stringify(inputValue, null, "\t");
+      $('#inputData').val(inputValue);
+    }
+  }, 100);
 
 }
 
