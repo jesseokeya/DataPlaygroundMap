@@ -1,18 +1,23 @@
 let map = null;
 let infowindow = null;
 let dataAnalyzed = [];
+const socket = io();
 
+console.log(socket);
 
 function main() {
   $('#map').hide();
+  socket.on('time', function(timeString) {
+    console.log(timeString);
+  });
 
 }
 
 function visualizeDataAsMap() {
   dataAnalyzed = $('#inputData').val().replace(/ /g, '');
   dataAnalyzed = JSON.parse(dataAnalyzed);
-  $('#button').remove();
-  $('#textArea').remove();
+  $('#button').hide();
+  $('#textArea').hide();
   $('#map').show();
 
   $(document).ready(function() {
@@ -49,8 +54,7 @@ function visualizeDataAsMap() {
   for (let i in dataAnalyzed) {
     let data = dataAnalyzed[i];
     let fullName = `${data.firstName} ${data.middleName} ${data.lastName}`;
-    let crimeInfo = [
-      `<div class="info_content">
+    let crimeInfo = [`<div class="info_content">
         <h5>${fullName}</h5>
         <p style="font-weight: bold; font-size: 14px;">
           <pre>Crime Commited: Gun Offence on ${data.modified_date}</pre>
@@ -63,9 +67,7 @@ function visualizeDataAsMap() {
           <pre>Neighborhood: ${data.neighborhood}</pre>
           <pre>City: ${data.city}</pre>
         </p>
-       </div>`
-    ];
-
+       </div>`];
 
     infoWindowContent.push(crimeInfo)
   }
@@ -85,10 +87,7 @@ function visualizeDataAsMap() {
   for (i = 0; i < markers.length; i++) {
     let position = new google.maps.LatLng(markers[i][1], markers[i][2]);
     bounds.extend(position);
-    marker = new google.maps.Marker({
-      position: position,
-      map: map,
-      title: markers[i][0]
+    marker = new google.maps.Marker({position: position, map: map, title: markers[i][0]
     });
 
     // Allow each marker to have an info window
@@ -105,10 +104,9 @@ function visualizeDataAsMap() {
 
   // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-    this.setZoom(11);
+    this.setZoom(15);
     google.maps.event.removeListener(boundsListener);
   });
-
 
 }
 

@@ -4,7 +4,9 @@
   "description": "Map Visualization Library",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "cd src && lite-server",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "GoogleMapsApi",
@@ -18,7 +20,8 @@
   "author": "Jesse Okeya",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "4.16.2",
+    "socket.io": "2.0.4"
   },
   "devDependencies": {},
   "repository": {
