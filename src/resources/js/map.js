@@ -88,7 +88,7 @@ function visualizeDataAsMap() {
   for (let i in nullIndexes) {
     for (let j in infoWindowContent) {
       if (nullIndexes[i] === j) {
-        infoWindowContent.splice(j, 1);
+        infoWindowContent[j] = '_Empty_';
       }
     }
   }
