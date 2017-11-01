@@ -8,26 +8,22 @@ html, body {
 }
 
 .form-group {
-  margin: 33px;
+  margin-top: 30px;
   border-radius: 6px;
 }
 
 .form-control {
   border-radius: 6px;
-  height: 58vh;
+  height: 65vh;
 }
 
 .map {
   margin-top: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
   height: 75%;
 }
 
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.span {
-  background-color: red;
 }
