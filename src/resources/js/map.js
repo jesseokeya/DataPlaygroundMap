@@ -48,15 +48,18 @@ function visualizeDataAsMap() {
 
   // Multiple Markers
   let markers = [];
+  let nullIndexes = [];
 
   for (let i in dataAnalyzed) {
     let data = dataAnalyzed[i];
-    let crimeData = [
-      `${data.firstName} ${data.lastName}`,
-      parseFloat(data.Latitude),
-      parseFloat(data.Longitude)
-    ]
-    markers.push(crimeData);
+    let lat = parseFloat(data.Latitude);
+    let lng = parseFloat(data.Longitude);
+    if (isNaN(lat) || isNaN(lng)) {
+      nullIndexes.push(i);
+    } else {
+      let crimeData = [`${data.firstName} ${data.lastName}`, lat, lng]
+      markers.push(crimeData);
+    }
   }
 
   // Info Window Content
@@ -81,12 +84,14 @@ function visualizeDataAsMap() {
 
     infoWindowContent.push(crimeInfo)
   }
-  // let infoWindowContent = [
-  //   ['<div class="info_content">' +
-  //     '<h3>London Eye</h3>' +
-  //     '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' + '</div>'
-  //   ]
-  // ];
+
+  for (let i in nullIndexes) {
+    for (let j in infoWindowContent) {
+      if (nullIndexes[i] === j) {
+        infoWindowContent.splice(j, 1);
+      }
+    }
+  }
 
   // Display multiple markers on a map
   infoWindow = new google.maps.InfoWindow();
