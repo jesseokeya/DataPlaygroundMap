@@ -3,12 +3,13 @@ let infowindow = null;
 let dataAnalyzed = [];
 const socket = io();
 
-console.log(socket);
-
 function main() {
   $('#map').hide();
-  socket.on('time', function(timeString) {
-    //console.log(timeString);
+
+  socket.on('mapData', function(data) {
+    let incomingData = JSON.parse(data);
+    $('#inputData').val(data);
+    $('#viewMap').click();
   });
 
   setInterval(() => {
