@@ -114,7 +114,7 @@ function visualizeDataAsMap() {
 
   // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-    this.setZoom(12);
+    this.setZoom(10);
     google.maps.event.removeListener(boundsListener);
   });
 
