@@ -20,7 +20,7 @@ function main() {
       $('#inputData').val(inputValue);
     }
   }, 100);
-  
+
 
 }
 
@@ -103,7 +103,10 @@ function visualizeDataAsMap() {
   for (i = 0; i < markers.length; i++) {
     let position = new google.maps.LatLng(markers[i][1], markers[i][2]);
     bounds.extend(position);
-    marker = new google.maps.Marker({position: position, map: map, title: markers[i][0]
+    marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      title: markers[i][0]
     });
 
     // Allow each marker to have an info window
@@ -118,9 +121,13 @@ function visualizeDataAsMap() {
     map.fitBounds(bounds);
   }
 
+  console.log(markers.length);
+
   // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-    this.setZoom(10);
+
+    (markers.length > 500) ? this.setZoom(11): this.setZoom(12);
+
     google.maps.event.removeListener(boundsListener);
   });
 
