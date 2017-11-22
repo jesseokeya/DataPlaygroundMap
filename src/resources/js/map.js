@@ -6,8 +6,16 @@ const socket = io();
 function main() {
   $('#map').hide();
 
+  socket.emit('pageLoad', {message: 'Successfully Connected'});
+
+  socket.on('dummyData', function(data) {
+    $('#inputData').val('');
+    $('#inputData').val(JSON.stringify(data.dummyData));
+  });
+
   socket.on('mapData', function(data) {
     let incomingData = JSON.parse(data);
+    $('#inputData').val('');
     $('#inputData').val(data);
     $('#viewMap').click();
   });
@@ -20,7 +28,6 @@ function main() {
       $('#inputData').val(inputValue);
     }
   }, 100);
-
 
 }
 
@@ -103,14 +110,11 @@ function visualizeDataAsMap() {
   for (i = 0; i < markers.length; i++) {
     let position = new google.maps.LatLng(markers[i][1], markers[i][2]);
     bounds.extend(position);
-    marker = new google.maps.Marker({
-      position: position,
-      map: map,
-      title: markers[i][0]
+    marker = new google.maps.Marker({position: position, map: map, title: markers[i][0]
     });
 
     // Allow each marker to have an info window
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
       return function() {
         infoWindow.setContent(infoWindowContent[i][0]);
         infoWindow.open(map, marker);
@@ -126,11 +130,12 @@ function visualizeDataAsMap() {
   // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
 
-    (markers.length > 500) ? this.setZoom(11): this.setZoom(12);
+    (markers.length > 500)
+      ? this.setZoom(11)
+      : this.setZoom(12);
 
     google.maps.event.removeListener(boundsListener);
   });
-
 }
 
 main();

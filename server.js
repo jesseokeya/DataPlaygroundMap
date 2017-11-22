@@ -5,6 +5,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+const dummyData = require('./src/data/data.json')
 const PORT = process.env.PORT || 3000;
 
 // parse application/x-www-form-urlencoded
@@ -19,6 +20,10 @@ app.use(express.static(path.join(__dirname, '/src/resources')));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
+});
+
+app.get('/dummyData', (req, res) => {
+  res.json(dummyData);
 });
 
 app.post('/data-playground', (req, res) => {
@@ -42,6 +47,10 @@ app.post('/data-playground', (req, res) => {
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
+  socket.on('pageLoad', (data) => {
+    console.log(data.message);
+    io.emit('dummyData', { dummyData: dummyData});
+  })
 });
 
 //setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
