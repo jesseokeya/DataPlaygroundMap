@@ -39,47 +39,33 @@
   </nav>
 
   <div class="container-fluid">
-    <br />
-    <ul class="nav nav-tabs mb-3 justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link text-info active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Docs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-info" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><b>Usage</b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-info" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><b>Examples</b></a>
-      </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <div class="container">
-          <h1><b>Documentation</b></h1>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <div class="container">
-          <h1>Usage</h1>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        <div class="container">
-          <h1>Examples</h1>
-        </div>
-      </div>
+    <div id="map" class="map"></div>
+    <div id="textArea" class="form-group shadow">
+      <textarea class="form-control" id="inputData" rows="3"></textarea>
     </div>
-    <br />
+
+    <div id="button" class="container">
+      <button id="viewMap" type="button" class="btn btn-dark btn-lg btn-block shadow" onclick="visualizeDataAsMap()">
+        Visualize Json Data As Map
+      </button>
+    </div>
+
+
   </div>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqbFdkItu8PhdWno76UMmQoIQZUb1NwGs&callback=initMap">
   </script>
   <!-- Optional JavaScript -->
   <script type="text/javascript" src="./js/nav.js"></script>
-  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/map.js"></script>
+  <script type="text/javascript">
+    function initMap() {}
+  </script>
 </body>
 
 </html>

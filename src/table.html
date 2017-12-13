@@ -40,35 +40,38 @@
 
   <div class="container-fluid">
     <br />
-    <ul class="nav nav-tabs mb-3 justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link text-info active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Docs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-info" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><b>Usage</b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-info" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><b>Examples</b></a>
-      </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <div class="container">
-          <h1><b>Documentation</b></h1>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <div class="container">
-          <h1>Usage</h1>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        <div class="container">
-          <h1>Examples</h1>
-        </div>
-      </div>
+    <div class="card shadow bg-light" style="overflow: scroll; font-weight: bold; border-radius: 8px;">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+          </tr>
+        </thead>
+        <tbody class="bg-info">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <br />
   </div>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -79,7 +82,7 @@
   </script>
   <!-- Optional JavaScript -->
   <script type="text/javascript" src="./js/nav.js"></script>
-  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/table.js"></script>
 </body>
 
 </html>

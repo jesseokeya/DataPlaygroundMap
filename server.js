@@ -22,17 +22,42 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
 });
 
+app.get('/map', (req, res) => {
+  res.sendFile(__dirname + '/src/map.html');
+});
+
+app.get('/table', (req, res) => {
+  res.sendFile(__dirname + '/src/table.html');
+});
+
 app.get('/dummyData', (req, res) => {
   res.json(dummyData);
 });
 
-app.post('/data-playground', (req, res) => {
+app.post('/data-playground-map', (req, res) => {
   let result = {};
-  if (req.body.mapData) {
-    io.emit('mapData', req.body.mapData);
+  if (req.body.data) {
+    io.emit('mapData', req.body.data);
     result = {
       status: 200,
-      dataRecieved: req.body.mapData
+      dataRecieved: req.body.data
+    }
+  } else {
+    result = {
+      status: 404,
+      dataRecieved: null
+    }
+  }
+  res.send(result);
+});
+
+app.post('/data-playground-table', (req, res) => {
+  let result = {};
+  if (req.body.data) {
+    io.emit('tableData', req.body);
+    result = {
+      status: 200,
+      dataRecieved: req.body.data
     }
   } else {
     result = {
